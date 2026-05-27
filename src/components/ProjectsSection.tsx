@@ -31,13 +31,13 @@ const songs = [
   {
     title: "🥤 Soda Pop (KPop Demon Hunters)",
     description: "Fun, catchy, dan fresh banget 🌊",
-    image: "/sodapop.webp",
+    image: "/sodapop.jpg",
     color: "from-green-300 via-emerald-400 to-teal-400",
   },
   {
     title: "🎧 Attention",
     description: "Chill pop yang easy listening 🌤️",
-    image: "/attention.webp",
+    image: "/attention.jpg",
     color: "from-sky-300 via-cyan-300 to-indigo-300",
   },
 ];
