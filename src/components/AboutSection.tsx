@@ -1,89 +1,148 @@
-import { motion } from 'framer-motion';
-import { Code2, Video, Coffee, Rocket } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Code2, Heart, Cake, GraduationCap } from 'lucide-react';
+import { useState } from 'react';
 
 export default function AboutSection() {
-  const stats = [
-    { icon: Code2, value: '50+', label: 'Projects Selesai' },
-    { icon: Video, value: '100+', label: 'Video Konten' },
-    { icon: Coffee, value: '1000+', label: 'Cangkir Kopi' },
-    { icon: Rocket, value: '5+', label: 'Tahun Pengalaman' },
+  const [open, setOpen] = useState(0);
+
+  const bioAccordion = [
+    {
+      title: '👩‍💻 Siapa Aku Sebenarnya',
+      content:
+        'Halo! Aku Raihana Annisa Sabil, pelajar dari MAN 1 Banda Aceh. Aku lagi suka banget belajar dunia web development 💻✨ dan selalu penasaran sama hal-hal baru di dunia teknologi.',
+    },
+    {
+      title: '🍰 Hal yang Aku Suka',
+      content:
+        'Aku suka baking 🍪🍰 sejak kecil. Buat aku, bikin kue itu bukan cuma hobi tapi juga cara buat healing dan bikin hati lebih tenang 😄',
+    },
+    {
+      title: '🎯 Impian Aku',
+      content:
+        'Aku bercita-cita menjadi seorang AKPOL 👮‍♀️ yang bisa membantu banyak orang, berguna untuk masyarakat, dan memberikan dampak positif 💙',
+    },
+  ];
+
+  const biographyCards = [
+    { icon: Code2, text: 'Ngoding & Belajar 💻' },
+    { icon: Heart, text: 'Suka Hal Baru ✨' },
+    { icon: Cake, text: 'Baking & Kreatif 🍰' },
+    { icon: GraduationCap, text: 'Pelajar MAN 1 🎓' },
   ];
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section
+      id="about"
+      className="py-16 md:py-24 bg-sky-50 dark:bg-[#050b1a] text-sky-900 dark:text-sky-100 transition-colors duration-500"
+    >
+      <div className="container mx-auto px-4 max-w-5xl">
+
+        {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <span className="text-primary font-medium mb-2 block">Tentang Saya</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Mengenal Lebih Dekat
+          <span className="text-sky-500 dark:text-sky-300 text-sm">
+            About Me 🌊
+          </span>
+
+          <h2 className="text-2xl md:text-4xl font-bold mt-2 text-sky-700 dark:text-sky-200">
+            Know Me Better ✨
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+
+          <div className="w-16 h-1 bg-sky-400 dark:bg-sky-500 mx-auto mt-3 rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+
+          {/* FOTO */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
-            <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden glass shadow-card">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <span className="text-8xl">👨‍💻</span>
+            <div className="flex justify-center">
+              <div className="relative group">
+
+                {/* glow */}
+                <div className="absolute inset-0 rounded-2xl blur-xl bg-sky-400/15 dark:bg-sky-500/10 group-hover:blur-2xl transition" />
+
+                {/* FOTO SIZE FIX */}
+                <div className="w-[260px] md:w-[320px] lg:w-[360px] aspect-square rounded-2xl overflow-hidden border border-sky-200 dark:border-sky-800 shadow-lg relative">
+                  <img
+                    src="/fotoenaw3.jpg"
+                    alt="profile"
+                    className="w-full h-full object-cover hover:scale-105 transition duration-500"
+                  />
                 </div>
-              </div>
-              <div className="absolute -bottom-6 -right-6 p-4 glass rounded-xl shadow-card">
-                <p className="font-display font-bold text-2xl text-gradient">5+ Tahun</p>
-                <p className="text-sm text-muted-foreground">Pengalaman</p>
+
               </div>
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <h3 className="font-display text-2xl md:text-3xl font-bold">
-              Passionate Developer &amp; Creator
+          {/* CONTENT */}
+          <div className="space-y-5">
+
+            <h3 className="text-lg md:text-xl font-semibold text-sky-700 dark:text-sky-200">
+              ✨ Cerita Singkat Tentang Aku
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Saya adalah seorang Fullstack Web Developer dengan passion yang kuat dalam menciptakan 
-              solusi digital yang inovatif. Dengan pengalaman lebih dari 5 tahun, saya telah 
-              membantu berbagai klien dan perusahaan dalam mewujudkan ide-ide mereka menjadi 
-              aplikasi web yang powerful dan user-friendly.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Selain coding, saya juga aktif sebagai Content Creator, berbagi pengetahuan 
-              tentang pemrograman dan teknologi melalui berbagai platform. Saya percaya bahwa 
-              berbagi ilmu adalah cara terbaik untuk terus belajar dan berkembang.
-            </p>
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              {stats.map((stat, index) => (
+
+            {/* ACCORDION */}
+            <div className="space-y-2">
+              {bioAccordion.map((item, index) => (
+                <div
+                  key={index}
+                  className="rounded-lg border border-sky-100 dark:border-sky-800 bg-white dark:bg-[#0b1224] overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpen(open === index ? -1 : index)}
+                    className="w-full flex justify-between items-center px-4 py-3 text-sm font-medium text-sky-700 dark:text-sky-200 hover:bg-sky-50 dark:hover:bg-[#101a33] transition"
+                  >
+                    {item.title}
+                    <span className="text-sky-500">
+                      {open === index ? '−' : '+'}
+                    </span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {open === index && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="px-4 pb-3 text-xs md:text-sm text-sky-600 dark:text-sky-300 leading-relaxed"
+                      >
+                        {item.content}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+
+            {/* BIO CARDS */}
+            <div className="grid grid-cols-2 gap-3 pt-4">
+              {biographyCards.map((item, index) => (
                 <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="p-4 glass rounded-xl text-center hover:shadow-card-hover transition-shadow"
+                  transition={{ delay: index * 0.1 }}
+                  className="p-3 rounded-lg text-center bg-sky-100 dark:bg-[#0b1224] border border-sky-200 dark:border-sky-800 hover:scale-[1.03] transition"
                 >
-                  <stat.icon className="h-6 w-6 text-primary mx-auto mb-2" />
-                  <p className="font-display text-2xl font-bold">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  <item.icon className="h-5 w-5 mx-auto mb-1 text-sky-500 dark:text-sky-300" />
+                  <p className="text-xs md:text-sm text-sky-700 dark:text-sky-200">
+                    {item.text}
+                  </p>
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+
+          </div>
         </div>
       </div>
     </section>

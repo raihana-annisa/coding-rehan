@@ -16,9 +16,9 @@ export default function Navbar({ isDark, toggleTheme }: NavbarProps) {
 
   const navItems = [
     { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
+    { label: 'Know Me', href: '#about' },
+    { label: 'Subjects', href: '#skills' },
+    { label: 'Favorites', href: '#projects' },
     { label: 'Contact', href: '#contact' },
   ];
 
