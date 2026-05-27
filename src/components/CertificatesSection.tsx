@@ -11,7 +11,7 @@ const certificates = [
     image: '🏆',
   },
   {
-    title: 'Google Professional Cloud Developer',
+    title: 'Google Cloud Developer',
     issuer: 'Google Cloud',
     date: '2023',
     credentialId: 'GCP-PCD-789012',
@@ -19,27 +19,27 @@ const certificates = [
   },
   {
     title: 'Meta Front-End Developer',
-    issuer: 'Meta (Coursera)',
+    issuer: 'Meta',
     date: '2023',
     credentialId: 'META-FE-345678',
     image: '⚛️',
   },
   {
-    title: 'MongoDB Certified Developer',
+    title: 'MongoDB Developer',
     issuer: 'MongoDB University',
     date: '2023',
     credentialId: 'MDB-DEV-901234',
     image: '🍃',
   },
   {
-    title: 'Certified Kubernetes Administrator',
+    title: 'Kubernetes Admin',
     issuer: 'CNCF',
     date: '2022',
     credentialId: 'CKA-567890',
     image: '⚙️',
   },
   {
-    title: 'Professional Scrum Master I',
+    title: 'Scrum Master I',
     issuer: 'Scrum.org',
     date: '2022',
     credentialId: 'PSM-I-234567',
@@ -49,30 +49,25 @@ const certificates = [
 
 export default function CertificatesSection() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-white dark:bg-black">
+    <section
+      className="
+        relative py-24 md:py-32 overflow-hidden
+        bg-sky-50 dark:bg-[#050b1a]
+        text-sky-900 dark:text-sky-100
+      "
+    >
 
-      {/* 🌊 SKY NEON BACKGROUND (SAMA STYLE TAPI BLUE) */}
+      {/* 🌊 BACKGROUND (SAMA VIBE CONTACT) */}
       <div className="absolute inset-0 -z-10">
 
-        <motion.div
-          className="absolute w-[600px] h-[600px] rounded-full bg-sky-400/20 blur-[140px]"
-          animate={{
-            x: [0, 40, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
+        {/* soft sky glow */}
+        <div className="absolute w-[700px] h-[700px] bg-sky-300/20 blur-[160px] top-[-200px] left-[-200px]" />
 
-        <motion.div
-          className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-cyan-400/20 blur-[140px]"
-          animate={{
-            x: [0, -40, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
+        {/* cyan glow */}
+        <div className="absolute w-[600px] h-[600px] bg-cyan-300/20 blur-[160px] bottom-[-250px] right-[-200px]" />
+
+        {/* center soft light */}
+        <div className="absolute w-[500px] h-[500px] bg-blue-300/10 blur-[140px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
       </div>
 
@@ -80,87 +75,79 @@ export default function CertificatesSection() {
 
         {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <span className="text-sky-500 tracking-widest">
-            ✦ CREDENTIALS ✦
+          <span className="text-sky-500 dark:text-sky-300 tracking-widest">
+            ✦ CERTIFICATES ✦
           </span>
 
-          <h2 className="text-4xl md:text-5xl font-bold mt-2 text-gray-900 dark:text-white">
-            Sertifikat & Lisensi
+          <h2 className="text-3xl md:text-5xl font-bold mt-2">
+            Sertifikat & Pencapaian 🎓
           </h2>
 
-          <div className="w-24 h-[2px] mx-auto mt-4 bg-gradient-to-r from-sky-400 to-cyan-400" />
+          <p className="text-sky-600/70 dark:text-sky-200/70 mt-2 text-sm">
+            sertifikat yang aku dapatkan 🚀
+          </p>
+
+          <div className="w-24 h-1 mx-auto mt-4 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-full" />
         </motion.div>
 
         {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.title}
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group relative"
             >
 
-              {/* 🔵 NEON OUTER GLOW (SKY VERSION) */}
-              <motion.div
-                className="absolute inset-0 rounded-2xl bg-sky-400/20 blur-2xl opacity-0 group-hover:opacity-60"
-                animate={{
-                  opacity: [0.2, 0.4, 0.2],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
+              {/* glow */}
+              <div className="absolute inset-0 rounded-2xl bg-sky-400/10 blur-2xl opacity-0 group-hover:opacity-70 transition" />
 
               {/* CARD */}
-              <motion.div
-                whileHover={{ y: -8 }}
+              <div
                 className="
                   relative p-6 rounded-2xl
-                  bg-white dark:bg-zinc-900
+                  bg-white/80 dark:bg-white/5
+                  backdrop-blur-xl
                   border border-sky-200/40 dark:border-white/10
-                  shadow-md
-                  overflow-hidden
+                  hover:-translate-y-2 transition duration-500
                 "
               >
 
-                {/* BORDER GLOW */}
-                <div className="absolute inset-0 rounded-2xl">
-                  <div className="absolute inset-0 border border-sky-400/30 rounded-2xl animate-pulse" />
-                  <div className="absolute inset-0 border border-cyan-400/20 rounded-2xl blur-sm" />
-                </div>
-
                 {/* ICON */}
-                <div className="text-3xl mb-3 relative z-10">
+                <div className="text-3xl mb-3">
                   {cert.image}
                 </div>
 
                 {/* TITLE */}
-                <div className="flex items-center gap-2 relative z-10">
+                <div className="flex items-center gap-2">
                   <Award className="h-5 w-5 text-sky-500" />
-                  <h3 className="font-bold text-gray-900 dark:text-white">
+                  <h3 className="font-bold">
                     {cert.title}
                   </h3>
                 </div>
 
                 {/* ISSUER */}
-                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 relative z-10">
+                <p className="text-sm text-sky-600/70 dark:text-sky-200/70 mt-2">
                   {cert.issuer}
                 </p>
 
                 {/* DATE */}
-                <div className="flex items-center gap-2 mt-2 text-sm text-gray-500 relative z-10">
+                <div className="flex items-center gap-2 mt-2 text-sm text-sky-500/70">
                   <Calendar className="h-4 w-4 text-sky-400" />
                   {cert.date}
                 </div>
 
                 {/* ID */}
-                <p className="text-xs mt-3 font-mono text-gray-400 relative z-10">
+                <p className="text-xs mt-3 font-mono text-sky-500/50">
                   ID: {cert.credentialId}
                 </p>
 
@@ -170,14 +157,14 @@ export default function CertificatesSection() {
                   className="
                     mt-4 rounded-full
                     bg-sky-500 hover:bg-sky-600
-                    text-white relative z-10
+                    text-white
                   "
                 >
                   <ExternalLink className="h-4 w-4 mr-1" />
                   Verifikasi
                 </Button>
 
-              </motion.div>
+              </div>
             </motion.div>
           ))}
 
